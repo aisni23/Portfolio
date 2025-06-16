@@ -1,0 +1,212 @@
+/* Responsive styles for portfolio website */
+
+/* Common responsive adjustments for the beach theme */
+@media screen and (max-width: 1200px) {
+    .container {
+        padding: 0 2rem;
+    }
+
+    .hero-content {
+        padding: 0 2rem;
+        background: linear-gradient(
+            rgba(164, 201, 221, 0.8),
+            rgba(242, 228, 216, 0.8)
+        );
+        backdrop-filter: blur(5px);
+        border-radius: 10px;
+    }
+
+    body::before {
+        background: linear-gradient(
+            to bottom,
+            var(--ocean-deep) 0%,
+            var(--ocean-medium) 50%,
+            var(--sand-light) 100%
+        );
+    }
+}
+
+/* Medium devices (tablets, up to 992px) */
+@media screen and (max-width: 992px) {
+    .services-grid,
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .project {
+        background: linear-gradient(
+            rgba(164, 201, 221, 0.15),
+            rgba(242, 228, 216, 0.15)
+        );
+        margin-bottom: 1.5rem;
+    }
+
+    .nav {
+        background: linear-gradient(
+            to right,
+            var(--ocean-deep),
+            var(--ocean-medium)
+        );
+        padding: 1rem;
+    }
+}
+
+/* Small devices (mobile phones, up to 768px) */
+@media screen and (max-width: 768px) {
+    :root {
+        --header-height: 60px;
+    }
+
+    body {
+        font-size: 14px;
+    }
+
+    .section {
+        padding: 2rem 1rem;
+        margin: 1rem 0;
+        background: linear-gradient(
+            rgba(164, 201, 221, 0.1),
+            rgba(242, 228, 216, 0.1)
+        );
+    }
+
+    .nav-container {
+        background: linear-gradient(
+            to right,
+            var(--ocean-deep),
+            var(--ocean-medium)
+        );
+    }
+
+    .nav-links {
+        background: linear-gradient(
+            var(--ocean-medium),
+            var(--ocean-light)
+        );
+        padding: 1rem;
+    }
+
+    .nav-links a {
+        color: var(--deep-black);
+        font-weight: 600;
+        padding: 0.8rem;
+    }
+
+    .hero-content {
+        text-align: center;
+        padding: 2rem 1rem;
+        background: linear-gradient(
+            rgba(164, 201, 221, 0.9),
+            rgba(242, 228, 216, 0.9)
+        );
+    }
+
+    .services-grid,
+    .skills-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .service-card,
+    .skill-card,
+    .project-card {
+        padding: 1.5rem;
+        margin: 0.5rem 0;
+        background: linear-gradient(
+            rgba(164, 201, 221, 0.15),
+            rgba(242, 228, 216, 0.15)
+        );
+    }
+
+    .timeline-item {
+        padding-left: 1.5rem;
+    }
+
+    .contact-form {
+        padding: 1rem;
+        background: linear-gradient(
+            rgba(164, 201, 221, 0.1),
+            rgba(242, 228, 216, 0.1)
+        );
+    }
+}
+
+/* Extra small devices (small mobile phones, up to 480px) */
+@media screen and (max-width: 480px) {
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .skill-items {
+        gap: 0.5rem;
+    }
+
+    .skill-items span {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .filter-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+        margin: 0.2rem;
+    }
+
+    .project-title {
+        font-size: 1.2rem;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .nav-links a:active,
+    .btn:active,
+    .service-card:active,
+    .project:active {
+        transform: scale(0.98);
+        transition: transform 0.1s;
+    }
+
+    .skill-items span:active,
+    .filter-btn:active {
+        background: linear-gradient(
+            45deg,
+            var(--ocean-light),
+            var(--sand-light)
+        );
+    }
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --deep-black: #FFFFFF;
+    }
+
+    body::before {
+        opacity: 0.85;
+    }
+
+    .section,
+    .card,
+    .project {
+        background: linear-gradient(
+            rgba(64, 122, 153, 0.2),
+            rgba(227, 208, 185, 0.2)
+        );
+    }
+}
+
+/* Critical Styles */
