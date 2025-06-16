@@ -1,6 +1,38 @@
 {
   "projects": [
     {
+      "title": "Sales Dashboard",
+      "description": "Developed a comprehensive sales insights dashboard using Tableau, providing actionable insights for business decision-making and performance tracking.",
+      "image": "assets/images/projects/Data-visualization-of-reviewed-articles.png",
+      "skills": ["Tableau", "Data Analysis", "Business Intelligence", "Data Visualization"],
+      "category": "visualization",
+      "link": "https://github.com/Prime-analysis/Sales_insight_tableau"
+    },
+    {
+      "title": "AdventureWorkbook Dashboard",
+      "description": "Created an interactive Power BI dashboard for Adventure Works, showcasing comprehensive business metrics and KPIs for enhanced decision-making.",
+      "image": "assets/images/projects/modern-abstract-background-wavy-lines-260nw-2442671787.webp",
+      "skills": ["Power BI", "Data Analysis", "Business Intelligence", "Data Visualization"],
+      "category": "visualization",
+      "link": "https://github.com/Prime-analysis/Adventure-Workbook-PBIX"
+    },
+    {
+      "title": "HR Dashboard",
+      "description": "Developed a Power BI dashboard for HR analytics, providing insights into workforce metrics, employee performance, and recruitment analytics.",
+      "image": "assets/images/projects/istockphoto-1448152453-612x612.jpg",
+      "skills": ["Power BI", "HR Analytics", "Data Visualization", "Business Intelligence"],
+      "category": "visualization",
+      "link": "https://github.com/Prime-analysis/HR_Dashboard_PBIX"
+    },
+    {
+      "title": "Stock Market Dashboard",
+      "description": "Created a dynamic Power BI dashboard for stock market analysis, featuring real-time market trends, price movements, and technical indicators.",
+      "image": "assets/images/projects/BA2.jpg",
+      "skills": ["Power BI", "Financial Analysis", "Data Visualization", "Stock Market Analytics"],
+      "category": "visualization",
+      "link": "https://github.com/Prime-analysis/Stock_market_analysis"
+    },
+    {
       "title": "Sales Performance Analysis",
       "description": "Conducted in-depth analysis of sales data using advanced statistical methods to identify key trends and growth opportunities. Implemented automated reporting solutions that led to a 25% revenue growth.",
       "image": "assets/images/projects/BA2.jpg",
