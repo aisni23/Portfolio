@@ -823,47 +823,121 @@ section h2::after {
 .projects-filter {
     display: flex;
     justify-content: center;
-    gap: 1rem;
-    margin: 2rem 0;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
     flex-wrap: wrap;
 }
 
-.filter-btn.hover-effect {
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 0.8rem 1.5rem;
-    color: var(--text-primary);
-    font-weight: 500;
-    transition: all 0.3s ease;
+.filter-btn {
+    background: var(--ocean-deep);
+    border: 2px solid transparent;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    color: var(--sand-light);
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    min-width: 160px;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    backdrop-filter: blur(10px);
+    justify-content: center;
+    gap: 10px;
+    animation: float 4s ease-in-out infinite;
 }
 
-.filter-btn.hover-effect:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-    border-color: var(--accent-color);
-    background: rgba(255, 255, 255, 0.15);
+.filter-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+    z-index: 1;
 }
 
-.filter-btn.hover-effect i {
-    font-size: 1.2rem;
+.filter-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    animation: glow 2s infinite;
 }
 
-.tableau-icon {
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 8px;
-    width: 16px;
-    height: 16px;
+.filter-btn:hover::before {
+    width: 300px;
+    height: 300px;
 }
 
-.filter-btn:hover .tableau-icon {
+.filter-btn i,
+.filter-btn svg {
+    font-size: 1.3rem;
+    position: relative;
+    z-index: 2;
+    animation: iconRotate 3s ease-in-out infinite;
+}
+
+.filter-btn span {
+    position: relative;
+    z-index: 2;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover span {
     transform: scale(1.1);
-    transition: transform 0.3s ease;
+    text-shadow: 0 0 8px rgba(255,255,255,0.5);
+}
+
+.filter-btn.active {
+    background: var(--ocean-light);
+    color: var(--ocean-deep);
+    animation: borderPulse 2s infinite;
+    transform: scale(1.05);
+}
+
+.filter-btn:active {
+    transform: scale(0.95);
+    transition: transform 0.1s;
+}
+
+/* Add pulse animation for icons */
+@keyframes iconPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.filter-btn i,
+.filter-btn svg {
+    animation: iconPulse 2s infinite;
+}
+
+.filter-btn:hover i,
+.filter-btn:hover svg {
+    animation: none;
+    transform: scale(1.2) rotate(5deg);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .filter-btn {
+        min-width: 140px;
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .projects-filter {
+        gap: 1rem;
+    }
 }
 
 .project-grid {
@@ -1157,7 +1231,8 @@ section h2::after {
 
 .project-card:hover .project-skills span {
     background: var(--primary-color);
-    color: var,--white);
+    color: var,(--white);
+    
 }
 
 /* Contact Form */
@@ -1287,122 +1362,176 @@ section h2::after {
     }
 }
 
-/* Apply animations to sections */
-section {
-    animation: fadeIn 1s ease-out;
+/* Enhanced animations for filter buttons */
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+    100% {
+        transform: translateY(0);
+    }
 }
 
-.skill-card, .service-card {
-    animation: slideUp 0.6s ease-out forwards;
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px rgba(64, 122, 153, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(64, 122, 153, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 5px rgba(64, 122, 153, 0.5);
+    }
 }
 
-/* Hero section enhancements */
-.hero {
+@keyframes iconRotate {
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+    25% {
+        transform: rotate(10deg) scale(1.2);
+    }
+    75% {
+        transform: rotate(-10deg) scale(1.2);
+    }
+    100% {
+        transform: rotate(0deg) scale(1);
+    }
+}
+
+@keyframes borderPulse {
+    0% {
+        border: 2px solid transparent;
+    }
+    50% {
+        border: 2px solid var(--sand-light);
+    }
+    100% {
+        border: 2px solid transparent;
+    }
+}
+
+.filter-btn {
+    background: var(--ocean-deep);
+    border: 2px solid transparent;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    color: var(--sand-light);
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
-    background: linear-gradient(
-        45deg,
-        var(--primary-color),
-        var(--dark-bg)
-    );
+    overflow: hidden;
+    min-width: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    animation: float 4s ease-in-out infinite;
 }
 
-.hero::after {
+.filter-btn::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(
-        circle at top right,
-        rgba(61, 133, 244, 0.1),
-        transparent 70%
-    );
-    pointer-events: none;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+    z-index: 1;
 }
 
-/* Card hover effects */
-.skill-card:hover,
-.service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    background: rgba(255, 255, 255, 0.1);
-}
-
-/* Button enhancements */
-.btn-primary {
-    background: var(--accent-color);
-    color: var(--white);
-    border: none;
-    transition: all 0.3s ease;
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 191, 111, 0.4);
-}
-
-/* Form input focus states */
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--accent-color);
-    box-shadow: 0 0 0 2px rgba(0, 191, 111, 0.1);
-}
-
-/* Social icons enhancements */
-.social-links {
-    margin-top: 2rem;
-}
-
-.social-icon {
-    color: var(--white);
-    font-size: 1.5rem;
-    margin: 0 1rem;
-    transition: all 0.3s ease;
-}
-
-.social-icon:hover {
-    color: var(--accent-color);
-    transform: translateY(-3px);
-}
-
-/* Footer enhancements */
-footer {
-    background: var(--accent-color);
-    color: var(--white);
-    padding: 2rem 0;
-    text-align: center;
-}
-
-/* Skill items and filter buttons */
-.skill-items span,
-.filter-btn {
-    background: linear-gradient(
-        45deg,
-        rgba(164, 201, 221, 0.2),
-        rgba(242, 228, 216, 0.2)
-    );
-    border: 1px solid var(--sand-light);
-    color: var(--white);
-}
-
-.skill-items span:hover,
 .filter-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    animation: glow 2s infinite;
+}
+
+.filter-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.filter-btn i,
+.filter-btn svg {
+    font-size: 1.3rem;
+    position: relative;
+    z-index: 2;
+    animation: iconRotate 3s ease-in-out infinite;
+}
+
+.filter-btn span {
+    position: relative;
+    z-index: 2;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover span {
+    transform: scale(1.1);
+    text-shadow: 0 0 8px rgba(255,255,255,0.5);
+}
+
+.filter-btn.active {
+    background: var(--ocean-light);
+    color: var(--ocean-deep);
+    animation: borderPulse 2s infinite;
+    transform: scale(1.05);
+}
+
+.filter-btn:active {
+    transform: scale(0.95);
+    transition: transform 0.1s;
+}
+
+/* Add staggered animation delay for buttons */
+.projects-filter .filter-btn:nth-child(1) { animation-delay: 0s; }
+.projects-filter .filter-btn:nth-child(2) { animation-delay: 0.2s; }
+.projects-filter .filter-btn:nth-child(3) { animation-delay: 0.4s; }
+.projects-filter .filter-btn:nth-child(4) { animation-delay: 0.6s; }
+.projects-filter .filter-btn:nth-child(5) { animation-delay: 0.8s; }
+
+/* Add shimmer effect */
+.filter-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
     background: linear-gradient(
         45deg,
-        var(--ocean-light),
-        var(--sand-light)
+        transparent 0%,
+        rgba(255,255,255,0.1) 50%,
+        transparent 100%
     );
-    color: var(--ocean-deep);
+    transform: rotate(45deg);
+    transition: all 0.3s ease;
+    opacity: 0;
 }
 
-/* Timeline styling */
-.timeline-item {
-    border-left: 2px solid var(--sand-light);
+.filter-btn:hover::after {
+    animation: shimmer 1.5s infinite;
+    opacity: 1;
 }
 
-.timeline-item::before {
-    background-color: var(--sand-medium);
-    border: 2px solid var(--ocean-medium);
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) rotate(45deg);
+    }
+}
+
+/* Responsive hover effects */
+@media (hover: hover) {
+    .filter-btn:hover {
+        background: linear-gradient(45deg, var(--ocean-deep), var(--ocean-light));
+    }
 }
