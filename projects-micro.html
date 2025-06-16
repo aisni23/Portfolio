@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="responsive.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>        :root {
-            --primary: #FF8C42;
-            --secondary: #00BFA6;
+            --primary: #7AE7C7;
+            --secondary: #F4F7A1;
             --dark: #0a0a0a;
             --light: #ffffff;
             --card-bg: rgba(255, 255, 255, 0.03);
@@ -139,8 +139,11 @@
             transform: scaleX(1);
         }        .project-card h3 {
             font-size: 1.5rem;
-            color: #808080;            margin-bottom: 1rem;
-          
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
         }
 
         .project-card p {
@@ -161,15 +164,17 @@
             border-radius: 4px;
             font-size: 0.85rem;
             border: 1px solid rgba(255, 255, 255, 0.1);
-        }.project-link {
+        }        .project-link {
             display: inline-flex;
-            align-items: center;            color: #808080;
+            align-items: center;
+            color: var(--light);
             text-decoration: none;
-            font-weight: 500;            transition: all 0.3s ease;
+            font-weight: 500;
+            transition: all 0.3s ease;
         }
 
         .project-link:hover {
-            color: #a6a6a6;
+            color: rgba(255, 255, 255, 0.8);
         }
 
         .project-link svg {
