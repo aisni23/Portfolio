@@ -258,6 +258,22 @@ class PortfolioApp {
             });
         });
     }
+
+    initProjectFilters() {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.getAttribute('data-filter');
+                
+                // Handle Power BI and Tableau filters
+                if (filter === 'powerbi' || filter === 'Tableau') {
+                    const projectsPage = 'projects-micro.html';
+                    const section = filter === 'powerbi' ? '#powerbi-section' : '#tableau-section';
+                    window.location.href = `${projectsPage}${section}`;
+                }
+            });
+        });
+    }
 }
 
 // Project handling
