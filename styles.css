@@ -853,6 +853,19 @@ section h2::after {
     font-size: 1.2rem;
 }
 
+.tableau-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+}
+
+.filter-btn:hover .tableau-icon {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1144,7 +1157,7 @@ section h2::after {
 
 .project-card:hover .project-skills span {
     background: var(--primary-color);
-    color: var(--white);
+    color: var,--white);
 }
 
 /* Contact Form */
