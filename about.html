@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Ayush Nagar</title>
+    
+    <!-- Performance Optimizations -->
+    <link rel="preload" as="image" href="assets/images/ai-background.jpg">
+    <link rel="preload" as="style" href="styles.css">
+    <link rel="preload" as="style" href="responsive.css">
+    <link rel="preload" as="font" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" crossorigin>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        .about-section {
+            min-height: calc(100vh - var(--header-height));
+            padding: 4rem 0;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.8), rgba(10,10,10,0.6)),
+                        url('assets/images/ai-background.jpg') center/cover fixed;
+        }
+
+        .about-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        .about-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--light);
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Additional responsive styles */
+        @media screen and (max-width: 768px) {
+            .about-section {
+                padding: 2rem 1rem;
+            }
+
+            .about-container {
+                padding: 1.5rem;
+                margin: 1rem;
+            }
+
+            .about-title {
+                font-size: 2rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .about-content {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <ul class="nav-links" role="navigation">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#projects-list">Projects</a></li>
+                <li><a href="#" class="active">Who am I</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="about-section">
+        <div class="about-container">
+            <h1 class="about-title">Who am I?</h1>
+            <div class="about-content">
+                <p>I'm Ayush Nagar, a data enthusiast based in Delhi, India, with a genuine curiosity for understanding patterns, solving problems, and uncovering insights through data. My journey in this field has been shaped by over a year of hands-on industry experience, where I've worked extensively with tools like Power BI, Excel, SQL, Tableau, and Python.</p>
+
+                <p>During my internship, I had the opportunity to apply these tools to real business problems — from building dashboards that informed decision-making to simplifying complex data into clear, actionable insights. I'm also a Certified Business Analyst, and I approach every project with a mindset of clarity, precision, and impact.</p>
+
+                <p>I'm someone who enjoys continuously learning and adapting to new challenges in the ever-evolving world of data. I believe the best solutions come from asking the right questions, listening carefully to the data, and collaborating with others to turn findings into meaningful outcomes.</p>
+
+                <p>I'm always open to new opportunities where I can grow further, contribute meaningfully, and be part of a team that values data-driven thinking.</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
