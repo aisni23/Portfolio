@@ -470,7 +470,7 @@
         margin: 0 auto;
         width: 94%;
         max-width: 400px;
-        background: rgba(255, 255, 255, 0.03);
+        background: linear-gradient(to right, #227fc1, #21da71); /* Ocean blue gradient */
         border-radius: 12px;
         padding: 8px;
     }
