@@ -1,33 +1,36 @@
 /* Responsive styles for portfolio website */
 
-/* Common responsive adjustments for the beach theme */
+/* CSS Variables for consistent colors and effects */
+:root {
+    --gradient-overlay-light: linear-gradient(rgba(164, 201, 221, 0.1), rgba(242, 228, 216, 0.1));
+    --gradient-overlay-medium: linear-gradient(rgba(164, 201, 221, 0.15), rgba(242, 228, 216, 0.15));
+    --gradient-overlay-strong: linear-gradient(rgba(164, 201, 221, 0.8), rgba(242, 228, 216, 0.8));
+    --section-padding-large: 4rem 2rem;
+    --section-padding-medium: 3rem 1.5rem;
+    --section-padding-small: 2rem 1rem;
+}
+
+/* Large devices (desktops, up to 1200px) */
 @media screen and (max-width: 1200px) {
     .container {
         padding: 0 2rem;
+        max-width: 100%;
     }
 
     .hero-content {
         padding: 0 2rem;
-        background: linear-gradient(
-            rgba(164, 201, 221, 0.8),
-            rgba(242, 228, 216, 0.8)
-        );
+        background: var(--gradient-overlay-strong);
         backdrop-filter: blur(5px);
         border-radius: 10px;
-    }
-
-    body::before {
-        background: linear-gradient(
-            to bottom,
-            var(--ocean-deep) 0%,
-            var(--ocean-medium) 50%,
-            var(--sand-light) 100%
-        );
     }
 }
 
 /* Medium devices (tablets, up to 992px) */
 @media screen and (max-width: 992px) {
+    .section {
+        padding: var(--section-padding-medium);
+    }
+
     .services-grid,
     .skills-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -35,20 +38,13 @@
     }
 
     .project {
-        background: linear-gradient(
-            rgba(164, 201, 221, 0.15),
-            rgba(242, 228, 216, 0.15)
-        );
+        background: var(--gradient-overlay-medium);
         margin-bottom: 1.5rem;
     }
 
     .nav {
-        background: linear-gradient(
-            to right,
-            var(--ocean-deep),
-            var(--ocean-medium)
-        );
         padding: 1rem;
+        backdrop-filter: blur(8px);
     }
 }
 
@@ -63,43 +59,31 @@
     }
 
     .section {
-        padding: 2rem 1rem;
+        padding: var(--section-padding-small);
         margin: 1rem 0;
-        background: linear-gradient(
-            rgba(164, 201, 221, 0.1),
-            rgba(242, 228, 216, 0.1)
-        );
+        background: var(--gradient-overlay-light);
     }
 
     .nav-container {
-        background: linear-gradient(
-            to right,
-            var(--ocean-deep),
-            var(--ocean-medium)
-        );
+        backdrop-filter: blur(8px);
     }
 
     .nav-links {
-        background: linear-gradient(
-            var(--ocean-medium),
-            var(--ocean-light)
-        );
         padding: 1rem;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
     }
 
     .nav-links a {
-        color: var(--deep-black);
+        color: var(--light);
         font-weight: 600;
         padding: 0.8rem;
     }
 
     .hero-content {
         text-align: center;
-        padding: 2rem 1rem;
-        background: linear-gradient(
-            rgba(164, 201, 221, 0.9),
-            rgba(242, 228, 216, 0.9)
-        );
+        padding: var(--section-padding-small);
+        background: var(--gradient-overlay-strong);
     }
 
     .services-grid,
@@ -114,10 +98,7 @@
     .project-card {
         padding: 1.5rem;
         margin: 0.5rem 0;
-        background: linear-gradient(
-            rgba(164, 201, 221, 0.15),
-            rgba(242, 228, 216, 0.15)
-        );
+        background: var(--gradient-overlay-medium);
     }
 
     .timeline-item {
@@ -126,10 +107,7 @@
 
     .contact-form {
         padding: 1rem;
-        background: linear-gradient(
-            rgba(164, 201, 221, 0.1),
-            rgba(242, 228, 216, 0.1)
-        );
+        background: var(--gradient-overlay-light);
     }
 }
 
@@ -145,6 +123,10 @@
         font-size: 0.9rem;
     }
 
+    .hero-content {
+        padding: 1.5rem 1rem;
+    }
+
     .hero-content h1 {
         font-size: 2rem;
     }
@@ -153,60 +135,69 @@
         gap: 0.5rem;
     }
 
-    .skill-items span {
+    .skill-items span,
+    .filter-btn {
         padding: 0.4rem 0.8rem;
         font-size: 0.8rem;
     }
 
     .filter-btn {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.8rem;
         margin: 0.2rem;
     }
 
     .project-title {
         font-size: 1.2rem;
     }
+
+    .project-card {
+        padding: 1.25rem;
+    }
 }
 
 /* Touch device optimizations */
 @media (hover: none) and (pointer: coarse) {
-    .nav-links a:active,
-    .btn:active,
-    .service-card:active,
-    .project:active {
+    .interactive-element:active {
         transform: scale(0.98);
         transition: transform 0.1s;
     }
 
+    /* Add the interactive-element class to nav-links a, btn, service-card, project */
+    
     .skill-items span:active,
     .filter-btn:active {
-        background: linear-gradient(
-            45deg,
-            var(--ocean-light),
-            var(--sand-light)
-        );
+        background: var(--gradient-overlay-medium);
     }
 }
 
-/* Dark mode adjustments */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --deep-black: #FFFFFF;
+/* Print styles */
+@media print {
+    .nav,
+    .filter-buttons,
+    .contact-form {
+        display: none;
     }
 
-    body::before {
-        opacity: 0.85;
+    body {
+        color: #000;
+        background: #fff;
     }
 
-    .section,
-    .card,
-    .project {
-        background: linear-gradient(
-            rgba(64, 122, 153, 0.2),
-            rgba(227, 208, 185, 0.2)
-        );
+    .section {
+        padding: 1rem 0;
+        page-break-inside: avoid;
+    }
+
+    .project-card,
+    .service-card {
+        break-inside: avoid;
+        border: 1px solid #eee;
+    }
+
+    .hero-content {
+        padding: 2rem 0;
+    }
+
+    .tags {
+        display: none;
     }
 }
-
-/* Critical Styles */
