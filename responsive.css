@@ -8,6 +8,13 @@
     --section-padding-large: 4rem 2rem;
     --section-padding-medium: 3rem 1.5rem;
     --section-padding-small: 2rem 1rem;
+    
+    /* Mobile optimization variables */
+    --mobile-touch-target: 44px;  /* Minimum touch target size */
+    --mobile-card-padding: 1.25rem;
+    --mobile-font-base: 16px;     /* Base font size for better readability */
+    --mobile-line-height: 1.6;
+    --mobile-paragraph-space: 1.2rem;
 }
 
 /* Large devices (desktops, up to 1200px) */
@@ -54,18 +61,55 @@
         --header-height: 60px;
     }
 
+    /* Base styles for better mobile reading */
     body {
-        font-size: 14px;
+        font-size: var(--mobile-font-base);
+        line-height: var(--mobile-line-height);
+        -webkit-text-size-adjust: 100%;  /* Prevent auto text scaling */
+        touch-action: manipulation;       /* Optimize touch actions */
     }
 
+    /* Enhanced section spacing and readability */
     .section {
         padding: var(--section-padding-small);
         margin: 1rem 0;
         background: var(--gradient-overlay-light);
+        scroll-margin-top: var(--header-height); /* Smooth scroll offset */
     }
 
+    /* Improved mobile navigation */
     .nav-container {
-        backdrop-filter: blur(8px);
+        padding: 0.5rem;
+        position: relative;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease;
+        background: rgba(10, 10, 10, 0.95);
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        transform: translateY(0);
+    }
+
+    .nav-toggle {
+        display: block;
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: var(--light);
+        font-size: 1.5rem;
+        cursor: pointer;
+        z-index: 1001;
     }
 
     .nav-links {
@@ -77,95 +121,261 @@
     .nav-links a {
         color: var(--light);
         font-weight: 600;
-        padding: 0.8rem;
+        padding: var(--mobile-touch-target);
+        min-height: var(--mobile-touch-target);
+        display: flex;
+        align-items: center;
     }
 
+    /* Optimized hero section for mobile */
     .hero-content {
         text-align: center;
         padding: var(--section-padding-small);
         background: var(--gradient-overlay-strong);
     }
 
+    .hero-content p {
+        font-size: 1.1rem;
+        margin: var(--mobile-paragraph-space) auto;
+        max-width: 90%;
+    }
+
+    /* Enhanced Hero Section Responsiveness */
+    .hero {
+        height: auto;
+        min-height: 70vh;
+        padding: 2rem 0;
+    }
+
+    .hero-content {
+        padding: 3rem 1rem;
+        width: 100%;
+    }
+
+    .intro-text {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin: 1rem auto;
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+
+    .name {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Improved grid layouts for mobile */
     .services-grid,
     .skills-grid,
     .projects-grid {
         grid-template-columns: 1fr;
-        gap: 1rem;
+        gap: 1.25rem;
+        padding: 0.5rem;
     }
 
+    /* Enhanced card styles for mobile */
     .service-card,
     .skill-card,
     .project-card {
-        padding: 1.5rem;
+        padding: var(--mobile-card-padding);
         margin: 0.5rem 0;
         background: var(--gradient-overlay-medium);
+        border-radius: 16px;
+        -webkit-tap-highlight-color: transparent;
     }
 
+    /* Project Grid and Card Improvements */
+    .project-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+
+    .project-card {
+        min-height: auto;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .project-card .tags {
+        margin-top: auto;
+    }
+
+    /* Better spacing for content */
     .timeline-item {
         padding-left: 1.5rem;
+        margin-bottom: var(--mobile-paragraph-space);
     }
 
+    /* Optimized form for mobile */
     .contact-form {
-        padding: 1rem;
+        padding: var(--mobile-card-padding);
         background: var(--gradient-overlay-light);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 16px; /* Prevent zoom on iOS */
+        padding: 0.8rem;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+    }
+
+    /* Contact Section Improvements */
+    .contact-form {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 1.5rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+        padding: 0.8rem;
+        margin-bottom: 1rem;
+        border-radius: 8px;
+        font-size: 16px;
+    }
+
+    .contact-form .btn {
+        width: 100%;
+        height: var(--mobile-touch-target);
+    }
+
+    /* Improved button touch targets */
+    .btn,
+    .filter-btn {
+        min-height: var(--mobile-touch-target);
+        min-width: var(--mobile-touch-target);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.8rem 1.2rem;
     }
 }
 
 /* Extra small devices (small mobile phones, up to 480px) */
 @media screen and (max-width: 480px) {
+    /* Adjusted typography for smaller screens */
     .section-title {
         font-size: 1.5rem;
-        margin-bottom: 1.5rem;
+        margin-bottom: var(--mobile-paragraph-space);
+        letter-spacing: -0.02em;
     }
 
+    /* Optimized buttons for better touch */
     .btn {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.9rem;
+        width: 100%;
+        max-width: 300px;
+        margin: 0.5rem auto;
+        height: var(--mobile-touch-target);
+        font-size: 0.95rem;
     }
 
+    /* Enhanced hero section */
     .hero-content {
         padding: 1.5rem 1rem;
     }
 
     .hero-content h1 {
         font-size: 2rem;
+        letter-spacing: -0.03em;
+        line-height: 1.2;
     }
 
+    /* Improved skill items layout */
     .skill-items {
-        gap: 0.5rem;
+        gap: 0.75rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .skill-items span,
     .filter-btn {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.8rem;
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+        border-radius: 6px;
+        min-height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .filter-btn {
-        margin: 0.2rem;
+        margin: 0.3rem;
+        flex: 1;
+        min-width: 120px;
+        max-width: 160px;
     }
 
+    /* Enhanced project cards */
     .project-title {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
+        letter-spacing: -0.01em;
+        line-height: 1.3;
     }
 
     .project-card {
-        padding: 1.25rem;
+        padding: var(--mobile-card-padding);
+        margin-bottom: 1.25rem;
+    }
+
+    /* Improved tag display */
+    .tags {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin: 1rem 0;
+    }
+
+    .tag {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.8rem;
+        white-space: nowrap;
     }
 }
 
 /* Touch device optimizations */
 @media (hover: none) and (pointer: coarse) {
-    .interactive-element:active {
+    /* Enhanced touch feedback */
+    .btn:active,
+    .nav-links a:active,
+    .service-card:active,
+    .project-card:active,
+    .filter-btn:active {
         transform: scale(0.98);
-        transition: transform 0.1s;
+        transition: transform 0.1s ease;
+        opacity: 0.9;
     }
 
-    /* Add the interactive-element class to nav-links a, btn, service-card, project */
-    
+    /* Improved touch feedback for skill items */
     .skill-items span:active,
     .filter-btn:active {
         background: var(--gradient-overlay-medium);
+    }
+
+    /* Disable hover effects on touch devices */
+    .project-card:hover,
+    .service-card:hover {
+        transform: none;
+    }
+
+    /* Better scrolling experience */
+    .section {
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+    }
+
+    /* Optimized form inputs for touch */
+    input,
+    textarea,
+    select {
+        font-size: 16px !important; /* Prevent zoom on iOS */
+        border-radius: 8px;
+        padding: 12px;
     }
 }
 
@@ -199,5 +409,70 @@
 
     .tags {
         display: none;
+    }
+}
+
+/* Progressive Enhancement */
+@supports (aspect-ratio: 16/9) {
+    .project-card img {
+        aspect-ratio: 16/9;
+        object-fit: cover;
+    }
+}
+
+@supports (backdrop-filter: blur(10px)) {
+    .nav-container,
+    .project-card {
+        backdrop-filter: blur(10px);
+    }
+}
+
+/* Modern Layout Features */
+@supports (display: grid) {
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+}
+
+@supports not (display: grid) {
+    .projects-grid {
+        display: flex;
+        flex-wrap: wrap;
+        margin: -1rem;
+    }
+    
+    .project-card {
+        flex: 1 1 300px;
+        margin: 1rem;
+    }
+}
+
+/* Container Query Support */
+@supports (container-type: inline-size) {
+    .project-card {
+        container-type: inline-size;
+        container-name: card;
+    }
+
+    @container card (max-width: 350px) {
+        .project-card h3 {
+            font-size: 1.25rem;
+        }
+        
+        .tags {
+            flex-wrap: wrap;
+        }
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
 }

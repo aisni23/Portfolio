@@ -4,12 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ayush Nagar Portfolio </title>
+    
+    <!-- Performance Optimizations -->
+    <link rel="preload" as="image" href="assets/images/ai-background.jpg">
+    <link rel="preload" as="style" href="styles.css">
+    <link rel="preload" as="style" href="responsive.css">
+    <link rel="preload" as="font" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" crossorigin>
+    
+    <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="responsive.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="js/filter-handlers.js" defer></script>
+    <script src="js/touch-handlers.js" defer></script>
 </head>
 <body>
     <nav class="nav">
@@ -40,27 +49,27 @@
                 <p class="subtitle">Transforming Data into Insights</p>
             </div>
             
-            <div class="projects-filter">
-                <button class="filter-btn hover-effect" data-filter="excel">
-                    <i class="fas fa-table"></i>
+            <div class="projects-filter" role="tablist" aria-label="Filter projects by technology">
+                <button class="filter-btn hover-effect" data-filter="excel" role="tab" aria-label="Filter Excel projects" aria-selected="false">
+                    <i class="fas fa-table" aria-hidden="true"></i>
                     <span>Excel</span>
                 </button>
-                <button class="filter-btn hover-effect" data-filter="powerbi">
-                    <i class="fas fa-chart-bar"></i>
+                <button class="filter-btn hover-effect" data-filter="powerbi" role="tab" aria-label="Filter Power BI projects" aria-selected="false">
+                    <i class="fas fa-chart-bar" aria-hidden="true"></i>
                     <span>Power BI</span>
                 </button>
-                <button class="filter-btn hover-effect" data-filter="Tableau">
-                    <svg class="tableau-icon" width="16" height="16" viewBox="0 0 16 16" style="margin-right: 8px;">
+                <button class="filter-btn hover-effect" data-filter="Tableau" role="tab" aria-label="Filter Tableau projects" aria-selected="false">
+                    <svg class="tableau-icon" width="16" height="16" viewBox="0 0 16 16" style="margin-right: 8px;" aria-hidden="true">
                         <path fill="currentColor" d="M8.48 0v1.56H7.36V0H6.24v1.56H5.12V0H3.52v1.56H2.4V0H0v2.4h1.56v1.12H0v1.6h1.56v1.12H0v1.6h1.56v1.12H0v1.6h1.56v1.12H0v2.4h2.4v-1.56h1.12V16h1.6v-1.56h1.12V16h1.6v-1.56h1.12V16H12v-2.4h-1.56v-1.12H12v-1.6h-1.56V9.76H12v-1.6h-1.56V7.04H12v-1.6h-1.56V4.32H12V2.4h-2.4v1.56H8.48V2.4H6.88v1.56H5.76V2.4H4.16v1.56H3.04V2.4H2.4v1.92h1.56v1.12H2.4v1.6h1.56v1.12H2.4v1.6h1.56v1.12H2.4v1.6h1.56v1.12H2.4v1.92h.64v-1.56h1.12v1.56h1.6v-1.56h1.12v1.56h1.6v-1.56h1.12v1.56h.64v-1.92H8.48v-1.12H10v-1.6H8.48V9.76H10v-1.6H8.48V7.04H10v-1.6H8.48V4.32H10V2.4H8.48zm-2.24 8v1.6H4.64v-1.6h1.6zm0-3.2v1.6H4.64v-1.6h1.6zm3.2 3.2v1.6H7.84v-1.6h1.6zm0-3.2v1.6H7.84v-1.6h1.6z"/>
                     </svg>
                     <span>Tableau</span>
                 </button>
-                <button class="filter-btn hover-effect" data-filter="sql">
-                    <i class="fas fa-database"></i>
+                <button class="filter-btn hover-effect" data-filter="sql" role="tab" aria-label="Filter SQL projects" aria-selected="false">
+                    <i class="fas fa-database" aria-hidden="true"></i>
                     <span>SQL</span>
                 </button>
-                <button class="filter-btn hover-effect" data-filter="python">
-                    <i class="fab fa-python"></i>
+                <button class="filter-btn hover-effect" data-filter="python" role="tab" aria-label="Filter Python projects" aria-selected="false">
+                    <i class="fab fa-python" aria-hidden="true"></i>
                     <span>Python</span>
                 </button>
             </div>
