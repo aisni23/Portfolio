@@ -152,6 +152,25 @@ body {
     border: none;
     cursor: pointer;
     transition: var(--transition-fast);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 
+                0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.filter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6),
+                0 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+.filter-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.filter-btn.active {
+    background: var(--overlay-medium);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6),
+                inset 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* Contact Form */
