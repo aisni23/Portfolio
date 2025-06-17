@@ -69,6 +69,11 @@
         --header-height: 45px; /* Reduced from 60px */
     }
 
+    /* Enable smooth scrolling */
+    html {
+        scroll-behavior: smooth;
+    }
+
     /* Base styles for better mobile reading */
     body {
         font-size: var(--mobile-font-base);
@@ -135,9 +140,9 @@
     }
 
     .nav-links a {
+        color: #ffffff;
         padding: 0.5rem 0.75rem;
         font-size: 0.95rem;
-        color: var(--light);
         text-decoration: none;
         border-radius: 4px;
         transition: all 0.2s ease;
@@ -147,18 +152,11 @@
         min-height: 36px;
     }
 
+    .nav-links a:hover,
+    .nav-links a:active,
     .nav-links a.active {
         background: rgba(255, 255, 255, 0.1);
-    }
-
-    .nav-links a:active,
-    .nav-links a:hover {
-        background: rgba(255, 255, 255, 0.15);
-    }
-
-    .nav-links a:active,
-    .nav-links a:hover {
-        background: rgba(255, 255, 255, 0.1);
+        color: #ffffff;
     }
 
     /* Remove hamburger menu as we're showing all links */

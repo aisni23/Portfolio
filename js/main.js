@@ -159,6 +159,46 @@ class PortfolioApp {
                 this.smoothScrollTo(startPosition, distance);
             });
         });
+
+        // Smooth scrolling for navigation links
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Update active state
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    this.classList.add('active');
+                }
+            });
+        });
+
+        // Set active nav link based on scroll position
+        window.addEventListener('scroll', function() {
+            let fromTop = window.scrollY + 60; // Offset for fixed header
+
+            navLinks.forEach(link => {
+                let section = document.querySelector(link.hash);
+                
+                if (section && 
+                    section.offsetTop <= fromTop && 
+                    section.offsetTop + section.offsetHeight > fromTop) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        });
     }
 
     smoothScrollTo(startPosition, distance) {
