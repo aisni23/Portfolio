@@ -1,71 +1,100 @@
-/* Responsive styles for portfolio website */
+/* Responsive Design System for Portfolio Website */
 
-/* CSS Variables for consistent colors and effects */
+/* CSS Custom Properties (Variables) */
 :root {
-    --gradient-overlay-light: linear-gradient(rgba(164, 201, 221, 0.1), rgba(242, 228, 216, 0.1));
-    --gradient-overlay-medium: linear-gradient(rgba(164, 201, 221, 0.15), rgba(242, 228, 216, 0.15));
-    --gradient-overlay-strong: linear-gradient(rgba(164, 201, 221, 0.8), rgba(242, 228, 216, 0.8));
+    /* Colors */
+    --primary-gradient: linear-gradient(to right, #227fc1, #21da71);
+    --overlay-light: rgba(255, 255, 255, 0.05);
+    --overlay-medium: rgba(255, 255, 255, 0.15);
+    --overlay-strong: rgba(255, 255, 255, 0.25);
     
-    /* Desktop Spacing */
-    --section-padding-large: 4rem 2rem;
-    --section-padding-medium: 3rem 1.5rem;
-    --section-padding-small: 2rem 1rem;
+    /* Typography */
+    --font-size-base: 16px;
+    --font-size-sm: 0.875rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 2rem;
     
-    /* Mobile optimization variables */
-    --mobile-touch-target: 44px;      /* Minimum touch target size */
-    --mobile-card-padding: 1rem;      /* Reduced card padding for mobile */
-    --mobile-font-base: 15px;         /* Adjusted base font size */
-    --mobile-font-h1: 2rem;          /* Mobile heading sizes */
-    --mobile-font-h2: 1.5rem;
-    --mobile-font-h3: 1.25rem;
-    --mobile-font-small: 0.875rem;
-    --mobile-line-height: 1.5;       /* Tighter line height for mobile */
-    --mobile-paragraph-space: 1rem;   /* Reduced paragraph spacing */
-    --mobile-section-space: 2rem;     /* Space between sections */
-    --mobile-element-space: 0.75rem;  /* Space between elements */
+    /* Spacing */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    
+    /* Layout */
+    --header-height: 60px;
+    --container-padding: 2rem;
+    --max-width: 1400px;
+    
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 16px;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-medium: 0.3s ease;
 }
 
-/* Navigation bar styling for all screen sizes */
+/* Base Styles (Mobile First) */
+html {
+    font-size: var(--font-size-base);
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding-top: var(--header-height);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+/* Navigation */
 .nav {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1000;
-    background: linear-gradient(to right, #227fc1, #21da71);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     height: var(--header-height);
+    background: var(--primary-gradient);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 
 .nav-container {
     display: flex;
     align-items: center;
     height: 100%;
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(5px);
+    padding: 0 var(--space-md);
 }
 
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 2rem;
-    padding: 0;
+    gap: var(--space-md);
     margin: 0;
+    padding: 0;
     list-style: none;
 }
 
 .nav-links a {
     color: #ffffff;
     text-decoration: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    transition: all 0.2s ease;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-sm);
+    transition: var(--transition-fast);
     font-weight: 500;
-    font-size: 1rem;
 }
 
 .nav-links a:hover,
@@ -74,677 +103,222 @@
     transform: translateY(-1px);
 }
 
-/* Large devices (desktops, up to 1200px) */
-@media screen and (max-width: 1200px) {
-    .nav-container {
-        padding: 0 1.5rem;
-    }
-    
-    .nav-links {
-        gap: 1.5rem;
-    }
+/* Hero Section */
+.hero {
+    min-height: calc(100vh - var(--header-height));
+    padding: var(--space-2xl) 0;
+    display: flex;
+    align-items: center;
 }
 
-/* Medium devices (tablets, up to 992px) */
-@media screen and (max-width: 992px) {
-    .nav-container {
-        padding: 0 1.25rem;
-    }
-    
-    .nav-links {
-        gap: 1.25rem;
-    }
+.hero-content {
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    background: var(--overlay-light);
+    backdrop-filter: blur(10px);
 }
 
-/* Small devices (mobile phones, up to 768px) */
-@media screen and (max-width: 768px) {
+/* Projects Grid */
+.projects-grid {
+    display: grid;
+    gap: var(--space-lg);
+    padding: var(--space-lg) 0;
+}
+
+/* Project Cards */
+.project-card {
+    background: var(--overlay-light);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    transition: var(--transition-medium);
+}
+
+/* Skills Section */
+.projects-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin: var(--space-lg) 0;
+}
+
+.filter-btn {
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius-sm);
+    background: var(--overlay-light);
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+/* Contact Form */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: var(--space-xl);
+    background: var(--overlay-light);
+    border-radius: var(--radius-lg);
+}
+
+/* Responsive Breakpoints */
+
+/* Large Screens (Desktops) */
+@media screen and (min-width: 1200px) {
     :root {
-        --header-height: 45px; /* Reduced from 60px */
+        --container-padding: 2rem;
+        --header-height: 70px;
     }
 
-    /* Enable smooth scrolling */
-    html {
-        scroll-behavior: smooth;
+    .container {
+        padding: 0 var(--container-padding);
     }
 
-    /* Base styles for better mobile reading */
-    body {
-        font-size: var(--mobile-font-base);
-        line-height: var(--mobile-line-height);
-        -webkit-text-size-adjust: 100%;
-        touch-action: manipulation;
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-xl);
     }
 
-    /* Enhanced section spacing and readability */
-    .section {
-        padding: var(--section-padding-small);
-        margin: 1rem 0;
-        background: var(--gradient-overlay-light);
-        scroll-margin-top: var(--header-height);
+    .nav-links {
+        gap: var(--space-xl);
     }
 
-    /* Compact mobile navigation */
-    .nav {
-        height: var(--header-height);
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 1000;
-        background: linear-gradient(to right, #227fc1, #21da71); /* Ocean blue gradient */
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    .nav-links a {
+        font-size: var(--font-size-lg);
+    }
+}
+
+/* Medium Screens (Tablets) */
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    :root {
+        --container-padding: 1.5rem;
+        --header-height: 60px;
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-lg);
+    }
+
+    .nav-links {
+        gap: var(--space-lg);
+    }
+
+    .hero-content {
+        padding: var(--space-xl) var(--space-lg);
+    }
+}
+
+/* Small Screens (Mobile) */
+@media screen and (max-width: 767px) {
+    :root {
+        --container-padding: 1rem;
+        --header-height: 50px;
+        --font-size-base: 15px;
     }
 
     .nav-container {
-        display: flex;
-        align-items: center;
-        height: 100%;
-        max-width: 1400px;
-        margin: 0 auto;
-        padding: 0 1.5rem;
-        background: rgba(255, 255, 255, 0.05);
-        backdrop-filter: blur(5px);
+        padding: 0 var(--space-sm);
     }
 
     .nav-links {
-        display: flex;
-        align-items: center;
-        gap: 1.5rem;
-        padding: 0;
-        margin: 0;
-    }
-
-    .nav-logo {
-        display: none; /* Hide logo on mobile */
-    }
-
-    .nav-links {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        margin-left: auto; /* This pushes the links to the right */
-        padding: 0;
+        gap: var(--space-sm);
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding: 0 var(--space-xs);
     }
 
     .nav-links::-webkit-scrollbar {
-        display: none; /* Chrome, Safari, Opera */
-    }
-
-    .nav-links li {
-        flex-shrink: 0;
-    }
-
-    .nav-links a {
-        color: #ffffff;
-        padding: 0.5rem 0.75rem;
-        font-size: 0.95rem;
-        text-decoration: none;
-        border-radius: 4px;
-        transition: all 0.2s ease;
-        white-space: nowrap;
-        display: flex;
-        align-items: center;
-        min-height: 36px;
-    }
-
-    .nav-links a:hover,
-    .nav-links a:active,
-    .nav-links a.active {
-        background: rgba(255, 255, 255, 0.15);
-        color: #ffffff;
-    }
-
-    /* Remove hamburger menu as we're showing all links */
-    .nav-toggle {
         display: none;
     }
 
-    /* Adjust body padding to account for fixed header */
-    body {
-        padding-top: var(--header-height);
+    .nav-links a {
+        font-size: var(--font-size-sm);
+        padding: var(--space-xs) var(--space-sm);
+        white-space: nowrap;
     }
 
-    /* Ensure other sections don't get hidden under the fixed nav */
-    .hero {
-        margin-top: 0;
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
     }
 
-    /* Optimized hero section for mobile */
     .hero-content {
+        padding: var(--space-lg) var(--space-md);
         text-align: center;
-        padding: var(--section-padding-small);
-        background: var(--gradient-overlay-strong);
-    }
-
-    .hero-content p {
-        font-size: 1.1rem;
-        margin: var(--mobile-paragraph-space) auto;
-        max-width: 90%;
-    }
-
-    /* Enhanced Hero Section Responsiveness */
-    .hero {
-        height: auto;
-        min-height: 70vh;
-        padding: 2rem 0;
-    }
-
-    .hero-content {
-        padding: 3rem 1rem;
-        width: 100%;
-    }
-
-    .intro-text {
-        font-size: 1rem;
-        line-height: 1.6;
-        margin: 1rem auto;
-        max-width: 100%;
-        padding: 0 1rem;
-    }
-
-    .name {
-        font-size: 2.5rem;
-        margin-bottom: 0.5rem;
-    }
-
-    /* Improved grid layouts for mobile */
-    .services-grid,
-    .skills-grid,
-    .projects-grid {
-        grid-template-columns: 1fr;
-        gap: 1.25rem;
-        padding: 0.5rem;
-    }
-
-    /* Enhanced card styles for mobile */
-    .service-card,
-    .skill-card,
-    .project-card {
-        padding: var(--mobile-card-padding);
-        margin: 0.5rem 0;
-        background: var(--gradient-overlay-medium);
-        border-radius: 16px;
-        -webkit-tap-highlight-color: transparent;
-    }
-
-    /* Project Grid and Card Improvements */
-    .projects-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        padding: 1rem 0.5rem;
-        margin: 0;
-    }
-
-    .project-card {
-        min-height: auto;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        padding: 1.25rem;
-        margin: 0;
-        background: var(--gradient-overlay-medium);
-        border-radius: 12px;
-        transition: transform 0.2s ease;
-    }
-
-    .project-card img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-        border-radius: 8px;
-        margin-bottom: 1rem;
-    }
-
-    .project-card .tags {
-        margin-top: 1rem;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-    }
-
-    /* Better spacing for content */
-    .timeline-item {
-        padding-left: 1.5rem;
-        margin-bottom: var(--mobile-paragraph-space);
-    }
-
-    /* Optimized form for mobile */
-    .contact-form {
-        padding: var(--mobile-card-padding);
-        background: var(--gradient-overlay-light);
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-        font-size: 16px; /* Prevent zoom on iOS */
-        padding: 0.8rem;
-        border-radius: 8px;
-        margin-bottom: 1rem;
-    }
-
-    /* Contact Section Improvements */
-    .contact-form {
-        width: 100%;
-        max-width: 500px;
-        margin: 0 auto;
-        padding: 1.5rem;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-        width: 100%;
-        padding: 0.8rem;
-        margin-bottom: 1rem;
-        border-radius: 8px;
-        font-size: 16px;
-    }
-
-    .contact-form .btn {
-        width: 100%;
-        height: var(--mobile-touch-target);
-    }
-
-    /* Improved button touch targets */
-    .btn,
-    .filter-btn {
-        min-height: var(--mobile-touch-target);
-        min-width: var(--mobile-touch-target);
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0.8rem 1.2rem;
-    }
-
-    /* Enhanced Skill Tools Buttons */
-    .projects-filter {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.75rem;
-        padding: 1rem 0.5rem;
     }
 
     .filter-btn {
-        min-width: 140px;
-        min-height: 48px;
-        padding: 0.8rem 1.2rem;
-        font-size: 1rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 8px;
-        transition: all 0.2s ease;
-        white-space: nowrap;
-        margin: 0.25rem;
+        width: 100%;
+        margin: var(--space-xs) 0;
     }
-
-    .filter-btn:active {
-        transform: scale(0.98);
-        background: rgba(255, 255, 255, 0.1);
-    }
-
-    .filter-btn i {
-        margin-right: 0.5rem;
-        font-size: 1.1rem;
-    }
-
-    /* Skill items in grid */
-    .skill-items {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.75rem;
-        justify-content: center;
-        padding: 1rem 0;
-    }
-
-    .skill-items span {
-        min-width: 140px;
-        min-height: 48px;
-        padding: 0.8rem 1.2rem;
-        font-size: 1rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 8px;
-        white-space: nowrap;
-    }
-    
-    /* Other mobile styles remain unchanged */
 }
 
-/* Extra small devices (small mobile phones, up to 480px) */
+/* Extra Small Screens */
 @media screen and (max-width: 480px) {
-    /* Adjusted typography for smaller screens */
-    .section-title {
-        font-size: 1.5rem;
-        margin-bottom: var(--mobile-paragraph-space);
-        letter-spacing: -0.02em;
+    :root {
+        --space-md: 0.875rem;
+        --space-lg: 1.25rem;
     }
 
-    /* Optimized buttons for better touch */
-    .btn {
-        width: 100%;
-        max-width: 300px;
-        margin: 0.5rem auto;
-        height: var(--mobile-touch-target);
-        font-size: 0.95rem;
-    }
-
-    /* Enhanced hero section */
     .hero-content {
-        padding: 1.5rem 1rem;
-    }
-
-    .hero-content h1 {
-        font-size: 2rem;
-        letter-spacing: -0.03em;
-        line-height: 1.2;
-    }
-
-    /* Improved skill items layout */
-    .skill-items {
-        gap: 0.75rem;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .skill-items span,
-    .filter-btn {
-        padding: 0.6rem 1rem;
-        font-size: 0.9rem;
-        border-radius: 6px;
-        min-height: 36px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .filter-btn {
-        margin: 0.3rem;
-        flex: 1;
-        min-width: 120px;
-        max-width: 160px;
-    }
-
-    /* Enhanced project cards */
-    .project-title {
-        font-size: 1.3rem;
-        letter-spacing: -0.01em;
-        line-height: 1.3;
+        padding: var(--space-md);
     }
 
     .project-card {
-        padding: var(--mobile-card-padding);
-        margin-bottom: 1.25rem;
+        padding: var(--space-md);
     }
 
-    /* Improved tag display */
-    .tags {
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin: 1rem 0;
+    .contact-form {
+        padding: var(--space-md);
     }
 
-    .tag {
-        font-size: 0.85rem;
-        padding: 0.4rem 0.8rem;
-        white-space: nowrap;
-    }
-
-    /* Vertical Skill Buttons Layout */
-    .projects-filter {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 8px;
-        padding: 0.5rem;
-        margin: 0 auto;
-        width: 94%;
-        max-width: 400px;
-        background: linear-gradient(to right, #227fc1, #21da71); /* Ocean blue gradient */
-        border-radius: 12px;
-        padding: 8px;
-    }
-
-    .filter-btn {
-        width: 100%;
-        min-height: 54px;
-        padding: 12px 16px;
-        margin: 0;
-        display: flex;
-        align-items: center;
-        text-align: left;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 8px;
-        transition: all 0.2s ease;
-        position: relative;
-    }
-
-    .filter-btn::after {
-        content: '→';
-        position: absolute;
-        right: 16px;
-        opacity: 0.7;
-        font-size: 1.2rem;
-    }
-
-    .filter-btn i {
-        margin-right: 12px;
-        font-size: 1.3rem;
-        width: 24px;
-        text-align: center;
-        opacity: 0.9;
-    }
-
-    .filter-btn span {
-        flex-grow: 1;
-        font-size: 1rem;
-        font-weight: 500;
-    }
-
-    /* Active state for list items */
-    .filter-btn.active,
-    .filter-btn:active {
-        background: rgba(255, 255, 255, 0.1);
-        transform: translateX(4px);
-        border-color: rgba(255, 255, 255, 0.2);
-    }
-
-    .filter-btn:active::after {
-        transform: translateX(4px);
-    }
-
-    /* List container styling */
-    .projects-section .section-header {
-        margin-bottom: 1.5rem;
-        padding: 0 1rem;
-    }
-
-    .projects-section .section-header + .projects-filter {
-        margin-top: 1rem;
-    }
-
-    /* Better spacing around the list */
-    .projects-filter + .projects-grid {
-        margin-top: 2rem;
-    }
-
-    /* Subtle divider between buttons */
-    .filter-btn:not(:last-child) {
-        border-bottom-width: 1px;
+    .nav-links a {
+        padding: var(--space-xs) var(--space-sm);
+        font-size: calc(var(--font-size-sm) * 0.9);
     }
 }
 
-/* Portrait orientation specific styles */
+/* Portrait Orientation Specific */
 @media screen and (max-width: 480px) and (orientation: portrait) {
     .projects-filter {
-        margin: 0 auto;
-        width: 90%; /* Add some margin on the sides */
+        flex-direction: column;
+        gap: var(--space-xs);
     }
 
     .filter-btn {
         text-align: left;
-        padding: 1rem;
+        padding: var(--space-sm) var(--space-md);
     }
 }
 
-/* Touch device optimizations */
-@media (hover: none) and (pointer: coarse) {
-    /* Smooth scrolling for sections */
-    html {
-        scroll-behavior: smooth;
-    }
-
-    body {
-        -webkit-overflow-scrolling: touch;
-    }
-
-    /* Interactive elements touch feedback */
-    .btn:active,
-    .filter-btn:active,
-    .nav-links a:active,
-    .project-card:active {
-        transform: scale(0.98);
-        opacity: 0.9;
-        transition: all 0.1s ease;
-    }
-
-    /* Active states for navigation */
-    .nav-links a.active {
-        background: rgba(255, 255, 255, 0.1);
-        color: var(--primary);
-    }
-
-    /* Disable any hover animations */
-    .project-card:hover {
-        transform: none;
-    }
-
-    /* Better scrolling in elements */
-    .nav-links,
-    .projects-grid,
-    .section {
-        -webkit-overflow-scrolling: touch;
-        scroll-padding-top: var(--header-height);
-    }
-
-    /* Prevent text selection on interactive elements */
-    .btn,
-    .filter-btn,
-    .nav-links a {
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        user-select: none;
-    }
-
-    /* Ensure tappable elements have proper size */
-    .btn,
-    .filter-btn,
-    .nav-links a,
-    .project-card a {
-        min-height: 44px;
-        min-width: 44px;
-    }
-}
-
-/* Print styles */
-@media print {
-    .nav,
-    .filter-buttons,
-    .contact-form {
-        display: none;
-    }
-
-    body {
-        color: #000;
-        background: #fff;
-    }
-
-    .section {
-        padding: 1rem 0;
-        page-break-inside: avoid;
-    }
-
-    .project-card,
-    .service-card {
-        break-inside: avoid;
-        border: 1px solid #eee;
+/* Landscape Orientation Specific */
+@media screen and (max-height: 480px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
     }
 
     .hero-content {
-        padding: 2rem 0;
-    }
-
-    .tags {
-        display: none;
+        padding: var(--space-md);
     }
 }
 
-/* Progressive Enhancement */
-@supports (aspect-ratio: 16/9) {
-    .project-card img {
-        aspect-ratio: 16/9;
-        object-fit: cover;
+/* High DPI Screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    html {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
     }
 }
 
-@supports (backdrop-filter: blur(10px)) {
-    .nav-container,
-    .project-card {
-        backdrop-filter: blur(10px);
-    }
-}
-
-/* Modern Layout Features */
-@supports (display: grid) {
-    .projects-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-    }
-}
-
-@supports not (display: grid) {
-    .projects-grid {
-        display: flex;
-        flex-wrap: wrap;
-        margin: -1rem;
-    }
-    
-    .project-card {
-        flex: 1 1 300px;
-        margin: 1rem;
-    }
-}
-
-/* Container Query Support */
-@supports (container-type: inline-size) {
-    .project-card {
-        container-type: inline-size;
-        container-name: card;
-    }
-
-    @container card (max-width: 350px) {
-        .project-card h3 {
-            font-size: 1.25rem;
-        }
-        
-        .tags {
-            flex-wrap: wrap;
-        }
-    }
-}
-
-/* Reduced Motion */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --overlay-light: rgba(255, 255, 255, 0.05);
+        --overlay-medium: rgba(255, 255, 255, 0.1);
+        --overlay-strong: rgba(255, 255, 255, 0.15);
     }
 }
