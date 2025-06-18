@@ -52,26 +52,37 @@ body::before {
     /* Updated Gradients */
     --main-gradient: linear-gradient(135deg, var(--sky-blue), var(--mint-green));
     --header-gradient: linear-gradient(135deg, var(--sky-blue-dark), var(--mint-green-dark));
-    --nav-gradient: linear-gradient(to right, var(--sky-blue-dark), var(--mint-green-dark));
-    
-    /* Text Colors */
-    --text-dark: #2c3e50;
-    --text-medium: #34495e;
-    --text-light: #ffffff;
-    
-    /* Background Elements */
-    --card-bg: rgba(255, 255, 255, 0.92);
-    --hover-bg: rgba(255, 255, 255, 0.95);
-    --active-bg: #ffffff;
-    
-    /* Overlays */
-    --overlay-light: rgba(255, 255, 255, 0.9);
-    --overlay-medium: rgba(255, 255, 255, 0.95);
-    
-    /* Shadows */
-    --shadow-soft: 0 4px 6px rgba(0, 0, 0, 0.05);
-    --shadow-medium: 0 6px 12px rgba(0, 0, 0, 0.08);
-    --text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    --text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Header base styles */
+.section-header h2,
+.hero-content h1.name,
+.github-card h3,
+.contact-card h3 {
+    background: var(--header-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: var(--text-shadow);
+    display: inline-block;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+/* Specific header sizes */
+.hero-content h1.name {
+    font-size: 3.5rem;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+}
+
+.github-card h3,
+.contact-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
 }
 
 /* Global Styles */
@@ -351,6 +362,65 @@ header h1 {
     text-shadow: var(--text-shadow);
     padding: 1rem 0;
 }
+
+/* Section Headers */
+.section-header h2,
+.gradient-text,
+h2.gradient-text {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    background: var(--header-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: var(--text-shadow);
+    display: inline-block;
+    padding: 0.5rem 0;
+}
+
+/* Contact section specific header */
+.contact .section-header h2 {
+    background: var(--header-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: var(--text-shadow);
+    display: inline-block;
+}
+
+/* Header Gradient Styles */
+.gradient-text {
+    background: var(--header-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: var(--text-shadow);
+    display: inline-block;
+}
+
+/* Main header styles */
+h1.gradient-text {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+/* Section header styles */
+h2.gradient-text {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+/* Subsection header styles */
+h3.gradient-text {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+
 
 /* Responsive Adjustments */
 @media screen and (max-width: 768px) {
@@ -1559,121 +1629,44 @@ section h2::after {
     }
 }
 
-.filter-btn {
-    background: var(--card-bg);
-    color: var(--text-primary);
-    box-shadow: var(--shadow-soft);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    animation: float 4s ease-in-out infinite;
+#projects-list .section-header h2,
+#github-activity .section-header h2 {
+    /* Reset all gradient and color effects */
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    color: inherit;
+    text-shadow: none;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
 }
 
-.filter-btn::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.6s ease, height 0.6s ease;
-    z-index: 1;
+/* Remove any hover effects */
+#projects-list .section-header h2:hover,
+#github-activity .section-header h2:hover {
+    background: none;
+    color: inherit;
+    text-shadow: none;
 }
 
-.filter-btn:hover {
-    transform: translateY(-5px) scale(1.05);
-    animation: glow 2s infinite;
+#contact .section-header h2,
+#contact .section-header p,
+#github-activity .section-header p {
+    /* Reset all gradient and color effects */
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    color: inherit;
+    text-shadow: none;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
 }
 
-.filter-btn:hover::before {
-    width: 300px;
-    height: 300px;
-}
-
-.filter-btn i,
-.filter-btn svg {
-    font-size: 1.3rem;
-    position: relative;
-    z-index: 2;
-    animation: iconRotate 3s ease-in-out infinite;
-}
-
-.filter-btn span {
-    position: relative;
-    z-index: 2;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
-
-.filter-btn:hover span {
-    transform: scale(1.1);
-    text-shadow: 0 0 8px rgba(255,255,255,0.5);
-}
-
-.filter-btn.active {
-    background: var(--active-bg);
-    box-shadow: var(--shadow-strong);
-    transform: scale(1.05);
-}
-
-.filter-btn:active {
-    transform: scale(0.95);
-    transition: transform 0.1s;
-}
-
-/* Add staggered animation delay for buttons */
-.projects-filter .filter-btn:nth-child(1) { animation-delay: 0s; }
-.projects-filter .filter-btn:nth-child(2) { animation-delay: 0.2s; }
-.projects-filter .filter-btn:nth-child(3) { animation-delay: 0.4s; }
-.projects-filter .filter-btn:nth-child(4) { animation-delay: 0.6s; }
-.projects-filter .filter-btn:nth-child(5) { animation-delay: 0.8s; }
-
-/* Add shimmer effect */
-.filter-btn::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(
-        45deg,
-        transparent 0%,
-        rgba(255,255,255,0.1) 50%,
-        transparent 100%
-    );
-    transform: rotate(45deg);
-    transition: all 0.3s ease;
-    opacity: 0;
-}
-
-.filter-btn:hover::after {
-    animation: shimmer 1.5s infinite;
-    opacity: 1;
-}
-
-@keyframes shimmer {
-    0% {
-        transform: translateX(-100%) rotate(45deg);
-    }
-    100% {
-        transform: translateX(100%) rotate(45deg);
-    }
-}
-
-/* Responsive hover effects */
-@media (hover: hover) {
-    .filter-btn:hover {
-        background: linear-gradient(45deg, var(--ocean-deep), var(--ocean-light));
-    }
+/* Remove any hover effects */
+#contact .section-header h2:hover,
+#contact .section-header p:hover,
+#github-activity .section-header p:hover {
+    background: none;
+    color: inherit;
+    text-shadow: none;
 }
