@@ -861,6 +861,36 @@ section {
     margin: 0 auto;
 }
 
+/* Gradient text styles for paragraphs */
+.gradient-text {
+    background: var(--header-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+/* Section header paragraphs */
+.section-header .gradient-text {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+}
+
+/* Ensure gradient text stays visible */
+.gradient-text:hover {
+    background: var(--header-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
 /* Section Styles */
 section {
     background: var(--light-bg);
@@ -1644,28 +1674,6 @@ section h2::after {
 /* Remove any hover effects */
 #projects-list .section-header h2:hover,
 #github-activity .section-header h2:hover {
-    background: none;
-    color: inherit;
-    text-shadow: none;
-}
-
-#contact .section-header h2,
-#contact .section-header p,
-#github-activity .section-header p {
-    /* Reset all gradient and color effects */
-    background: none;
-    -webkit-background-clip: unset;
-    background-clip: unset;
-    color: inherit;
-    text-shadow: none;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-}
-
-/* Remove any hover effects */
-#contact .section-header h2:hover,
-#contact .section-header p:hover,
-#github-activity .section-header p:hover {
     background: none;
     color: inherit;
     text-shadow: none;
