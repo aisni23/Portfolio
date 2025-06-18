@@ -1349,39 +1349,62 @@ section h2::after {
 
 /* Project card styles without hover effects */
 .project-card {
-    background: rgba(255, 255, 255, 0.95);
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: none;
-    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: rgba(15, 22, 40, 0.95);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .project-card .project-image {
     width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 1.5rem;
+    height: 220px; /* Fixed height for images */
+    object-fit: cover;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.project-card .project-title {
-    color: var(--text-dark);
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
+.project-card h3 {
+    padding: 1.5rem 1.5rem 0.5rem;
+    font-size: 1.4rem;
+    height: 3.8rem; /* Fixed height for titles */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin: 0;
 }
 
 .project-card .project-description {
-    color: #000000;
+    padding: 0 1.5rem 1rem;
     font-size: 1rem;
     line-height: 1.6;
-    margin-bottom: 1.5rem;
+    height: 4.8rem; /* Fixed height for description - 3 lines */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin: 0;
 }
 
 .project-card .project-tech {
-    color: var(--text-dark);
+    padding: 1rem 1.5rem;
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.project-card .project-tech span {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
     font-size: 0.9rem;
-    font-weight: 500;
+    color: var(--text-light);
 }
 
 /* White text for all project descriptions with data-description attribute */
