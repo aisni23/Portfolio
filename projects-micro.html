@@ -240,6 +240,32 @@
             background-clip: text;
         }
 
+        /* Reset and set black color for project descriptions */
+        .project-card p,
+        .project-description,
+        [data-category="powerbi"] .project-description,
+        [data-category="tableau"] .project-description,
+        [data-category="python"] .project-description {
+            color: #000000 !important;
+            opacity: 1 !important;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Remove all hover effects */
+        .project-card:hover p,
+        .project-card:hover .project-description {
+            color: #000000 !important;
+            opacity: 1 !important;
+            transform: none;
+        }
+
+        /* Override any existing color styles */
+        .project-card {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
         @media screen and (max-width: 768px) {
             .section-title,
             .project-header h2 {

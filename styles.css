@@ -1384,6 +1384,40 @@ section h2::after {
     font-weight: 500;
 }
 
+/* Project descriptions - specific styling */
+.project-card[data-category="powerbi"] .project-description,
+.project-card[data-category="tableau"] .project-description,
+.project-card[data-category="python"] .project-description,
+.project-grid .project-card .project-description {
+    color: #000000 !important;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+    margin: 1rem 0;
+    opacity: 1;
+    transition: none;
+    background: transparent;
+}
+
+/* Remove any potential hover effects */
+.project-card[data-category="powerbi"]:hover .project-description,
+.project-card[data-category="tableau"]:hover .project-description,
+.project-card[data-category="python"]:hover .project-description,
+.project-grid .project-card:hover .project-description {
+    color: #000000 !important;
+    opacity: 1;
+    transform: none;
+}
+
+/* Ensure the text stays black in all states */
+.project-card .project-description,
+.project-card:hover .project-description,
+.project-card:focus .project-description,
+.project-card:active .project-description {
+    color: #000000 !important;
+    opacity: 1;
+}
+
 /* Reset project box styles to remove all hover and transform effects */
 .project-card,
 .project-card[data-category="powerbi"],
