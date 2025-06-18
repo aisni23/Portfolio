@@ -18,41 +18,61 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
+        :root {
+            --sky-blue-light: #e6f3ff;
+            --sky-blue: #66b3ff;
+            --sky-blue-dark: #0066cc;
+            --mint-green: #98f5c4;
+            --mint-green-dark: #40bf80;
+            --text-dark: #2c3e50;
+            --text-light: #ffffff;
+        }
+
+        body {
+            background-color: var(--sky-blue-light);
+        }
+
         .about-section {
             min-height: calc(100vh - var(--header-height));
             padding: 4rem 0;
-            background: linear-gradient(to bottom, rgba(22, 217, 129, 0.8), rgba(27, 183, 219, 0.838)),
+            background: linear-gradient(135deg, rgba(102, 179, 255, 0.9), rgba(152, 245, 196, 0.9)),
                         url('assets/images/ai-background.jpg') center/cover fixed;
         }
 
         .about-container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem;
+            background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(10px);
             border-radius: 16px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.976);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(102, 179, 255, 0.2);
         }
 
         .about-title {
             font-size: 2.5rem;
             margin-bottom: 2rem;
-            color: var(--primary);
             text-align: center;
+            background: var(--header-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: var(--text-shadow);
+            display: inline-block;
         }
 
         .about-content {
             font-size: 1.1rem;
             line-height: 1.8;
-            color: var(--light);
+            color: var(--text-dark);
         }
 
         .about-content p {
             margin-bottom: 1.5rem;
+            color: var(--text-medium);
         }
 
-        /* Additional responsive styles */
         @media screen and (max-width: 768px) {
             .about-section {
                 padding: 2rem 1rem;
@@ -61,16 +81,6 @@
             .about-container {
                 padding: 1.5rem;
                 margin: 1rem;
-            }
-
-            .about-title {
-                font-size: 2rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .about-content {
-                font-size: 1rem;
-                line-height: 1.6;
             }
         }
     </style>

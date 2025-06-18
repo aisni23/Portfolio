@@ -3,10 +3,13 @@
 /* CSS Custom Properties (Variables) */
 :root {
     /* Colors */
-    --primary-gradient: linear-gradient(to right, #227fc1, #21da71);
+    --primary-blue: #227fc1;
+    --primary-green: #21da71;
+    --primary-gradient: linear-gradient(to right, var(--primary-blue), var(--primary-green));
     --overlay-light: rgba(255, 255, 255, 0.05);
     --overlay-medium: rgba(255, 255, 255, 0.15);
     --overlay-strong: rgba(255, 255, 255, 0.25);
+    --shadow-color: rgba(0, 0, 0, 0.3);
     
     /* Typography */
     --font-size-base: 16px;

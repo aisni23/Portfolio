@@ -6,19 +6,21 @@
     <title>Analytics Portfolio - Ayush Nagar</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="responsive.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>        :root {
-            --primary: #7AE7C7;
-            --secondary: #F4F7A1;
-            --dark: #0a0a0a;
-            --light: #ffffff;
-            --card-bg: rgba(255, 255, 255, 0.03);
-            --hover-bg: rgba(255, 140, 66, 0.05);
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">    <style>        :root {
+            /* Sky Blue Theme */
+            --sky-blue-light: #e6f3ff;
+            --sky-blue: #66b3ff;
+            --sky-blue-dark: #0066cc;
+            --mint-green: #98f5c4;
+            --mint-green-dark: #40bf80;
+            --text-dark: #2c3e50;
+            --text-light: #ffffff;
+            --card-bg: rgba(255, 255, 255, 0.92);
         }
 
         body {
-            background-color: var(--dark);
-            color: var(--light);
+            background-color: var(--sky-blue-light);
+            color: var(--text-dark);
             font-family: 'Inter', sans-serif;
             margin: 0;
             line-height: 1.6;
@@ -31,36 +33,29 @@
             justify-content: center;
             text-align: center;
             position: relative;
-            background: linear-gradient(to bottom, rgba(10,10,10,0.8), rgba(10,10,10,0.6)),
+            background: linear-gradient(135deg, rgba(102, 179, 255, 0.9), rgba(152, 245, 196, 0.9)),
                         url('assets/images/ai-background.jpg') center/cover;
-            overflow: hidden;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 30%;
-            background: linear-gradient(to top, var(--dark), transparent);
         }
 
         .hero-content {
-            max-width: 800px;
-            padding: 0 2rem;
-            z-index: 1;
+            background: var(--overlay-light);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-soft);
+            color: var(--text-dark);
         }
 
-        .hero h1 {
-            font-size: 4rem;
+        .hero-content h1 {
+            color: var(--text-dark);
+            font-size: 2.8rem;
             font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+            background: linear-gradient(45deg, var(--sky-blue-dark), var(--mint-green-dark));
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            line-height: 1.2;
         }
 
         .hero p {
@@ -84,14 +79,16 @@
         .section-header {
             text-align: center;
             margin-bottom: 60px;
-        }
-
-        .section-header h2 {
+        }        .section-header h2 {
             font-size: 2.5rem;
-            color: var(--primary);
             margin-bottom: 1rem;
             position: relative;
             display: inline-block;
+            background: var(--header-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: var(--text-shadow);
         }
 
         .section-header p {
@@ -108,41 +105,23 @@
 
         .project-card {
             background: var(--card-bg);
-            border-radius: 24px;
-            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-soft);
             transition: all 0.3s ease;
-            border: 1px solid rgba(255,255,255,0.05);
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
+            color: var(--text-dark);
+            border: 1px solid rgba(102, 179, 255, 0.2);
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-medium);
             background: var(--hover-bg);
-            border-color: rgba(255, 140, 66, 0.1);
         }
 
-        .project-card:hover::before {
-            transform: scaleX(1);
-        }        .project-card h3 {
+        .project-card h3 {
+            color: var(--sky-blue-dark);
             font-size: 1.5rem;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-weight: 600;
             margin-bottom: 1rem;
         }
 
@@ -158,12 +137,12 @@
             gap: 0.5rem;
             margin-bottom: 1.5rem;
         }        .tag {
-            background: rgba(255, 255, 255, 0.05);
-            color: rgba(255, 255, 255, 0.8);
+            background: rgba(102, 179, 255, 0.1);
+            color: var(--text-dark);
+            border: 1px solid rgba(102, 179, 255, 0.2);
             padding: 0.3rem 0.8rem;
             border-radius: 4px;
             font-size: 0.85rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
         }        .project-link {
             display: inline-flex;
             align-items: center;
@@ -184,6 +163,92 @@
 
         .project-link:hover svg {
             transform: translateX(5px);
+        }
+
+        .filter-btn {
+            background: var(--sky-blue);
+            color: var(--text-light);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .filter-btn:hover {
+            background: var(--sky-blue-dark);
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background: var(--sky-blue-dark);
+        }
+
+        .section-title {
+            color: var(--sky-blue-dark);
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, var(--sky-blue), var(--mint-green));
+            border-radius: 2px;
+        }
+
+        .project-description {
+            color: var(--text-medium);
+        }
+
+        /* Project Headers Gradient Styling */
+        .section-title,
+        .project-header h2,
+        .project-card h3 {
+            background: linear-gradient(45deg, var(--sky-blue-dark), var(--mint-green-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title,
+        .project-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover h3 {
+            background: linear-gradient(45deg, var(--mint-green-dark), var(--sky-blue-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
+        @media screen and (max-width: 768px) {
+            .section-title,
+            .project-header h2 {
+                font-size: 2.2rem;
+            }
+
+            .project-card h3 {
+                font-size: 1.5rem;
+            }
         }
 
         @media (max-width: 768px) {
