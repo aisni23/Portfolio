@@ -17,9 +17,13 @@ body.loaded {
 
 /* Body Styles */
 body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
     position: relative;
-    background-color: var(--sky-blue-light);
-    color: var(--text-dark);
+    background: linear-gradient(135deg, var(--sky-blue-dark), var(--mint-green-dark));
+    color: var(--text-light);
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
 body::before {
@@ -29,15 +33,24 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        to bottom,
-        var(--ocean-deep) 0%,
-        var(--ocean-medium) 40%,
-        var(--ocean-light) 80%,
-        var(--sand-light) 100%
+    background: linear-gradient(135deg, 
+        rgba(0, 102, 204, 0.95), /* sky-blue-dark with opacity */
+        rgba(64, 191, 128, 0.95) /* mint-green-dark with opacity */
     );
-    opacity: 0.9;
     z-index: -1;
+}
+
+/* Ensure content remains visible */
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Adjust text colors for better visibility */
+.intro-text, 
+.subtitle,
+p {
+    color: rgba(255, 255, 255, 0.9);
 }
 
 /* Critical Styles */
@@ -91,13 +104,8 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background: var(--primary-color);
-    background-image: url('assets/images/ai-background.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    /* New gradient background - no image needed */
     background-attachment: fixed;
-    /* Add a dark overlay to improve text readability */
-    background-color: rgba(0, 0, 0, 0.7);
     background-blend-mode: overlay;
     overflow-x: hidden;
 }
@@ -720,7 +728,7 @@ h3.gradient-text {
     position: relative;
     z-index: 1;
     color: rgba(255, 255, 255, 0.7);
-    line-height: 1.8;
+    line-height: 1.1;
     font-size: 1.1rem;
 }
 
@@ -1370,373 +1378,74 @@ section h2::after {
     color: var(--ocean-deep);
 }
 
-/* Project Cards with Glass Effect */
-.project-card {
-    position: relative;
-    background: rgba(15, 22, 40, 0.3);
-    border-radius: 24px;
-    overflow: hidden;
+/* Section box backgrounds */
+.hero .hero-content,
+.projects .container,
+.github .container,
+.contact .container {
+    background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 2rem auto;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-.project-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--accent-color);
-    box-shadow: 0 20px 40px rgba(0, 191, 111, 0.2);
+/* Specific section adjustments */
+.projects .container {
+    padding: 3rem 2rem;
 }
 
-.project-image {
-    position: relative;
-    overflow: hidden;
-    height: 280px;
+.github-card,
+.contact-card {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    padding: 2rem;
+    margin: 1rem 0;
+    transition: transform 0.3s ease;
 }
 
-.project-image::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(180deg, transparent 0%, rgba(15, 22, 40, 0.8) 100%);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-}
-
-.project-card:hover .project-image::after {
-    opacity: 1;
-}
-
-.project-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.project-card:hover .project-image img {
-    transform: scale(1.1);
-}
-
-.project-content {
-    padding: 2.5rem;
-    position: relative;
-    background: rgba(15, 22, 40, 0.5);
-}
-
-.project-content::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(90deg, 
-        transparent,
-        rgba(0, 191, 111, 0.3),
-        transparent
-    );
-}
-
-.project-content h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1.5rem;
-    color: var(--white);
-    font-weight: 600;
-    letter-spacing: -0.5px;
-}
-
-.project-skills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-    margin: 1.5rem 0;
-}
-
-.project-skills span {
-    padding: 0.6rem 1.2rem;
-    background: rgba(0, 191, 111, 0.1);
-    border: 1px solid rgba(0, 191, 111, 0.2);
-    border-radius: 50px;
-    font-size: 0.95rem;
-    color: var(--accent-color);
-    transition: all 0.3s ease;
+/* Project cards and filter buttons */
+.project-grid .project-card,
+.projects-filter .filter-btn {
+    background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
 }
 
-.project-skills span:hover {
-    background: var(--accent-color);
-    color: var(--white);
-    transform: translateY(-2px);
+/* Optional hover effect for cards */
+.github-card:hover,
+.contact-card:hover {
+    transform: translateY(-5px);
 }
 
-.project-card:hover .project-skills span {
-    background: var(--primary-color);
-    color: var,(--white);
-    
-}
-
-/* Contact Form */
-.contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 16px;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
-    color: var(--white);
-    font-size: 1rem;
-    transition: var(--transition);
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--accent-color);
-    box-shadow: 0 0 0 2px rgba(0, 191, 111, 0.1);
-}
-
-.form-group textarea {
-    min-height: 150px;
-    resize: vertical;
-}
-
-/* Buttons */
-.btn {
-    display: inline-block;
-    padding: 1rem 2.5rem;
-    font-size: 1.1rem;
+/* Project card text styles */
+.project-card .project-description,
+.project-card p {
+    color: #000000;
     font-weight: 500;
-    text-decoration: none;
-    border-radius: 50px;
-    transition: var(--transition);
-    cursor: pointer;
-    border: none;
+    line-height: 1.6;
+    margin-top: 1rem;
+    opacity: 0.9;
 }
 
-.btn-primary {
-    background: var(--accent-color);
-    color: var(--white);
-    border: none;
-    transition: all 0.3s ease;
+/* Ensure readability against any background */
+.project-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 191, 111, 0.4);
+/* Keep other project card elements consistent */
+.project-card h3 {
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
 }
 
-.btn:hover {
-    background-color: var(--light-orange);
-    color: var(--white);
-    transform: translateY(-2px);
-}
-
-/* Social Links */
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-.social-icon {
-    color: var(--white);
-    font-size: 1.5rem;
-    transition: var(--transition);
-    opacity: 0.8;
-}
-
-.social-icon:hover {
-    color: var(--accent-color);
-    opacity: 1;
-    transform: translateY(-3px);
-}
-
-/* Add subtle gradient overlays to sections */
-.services, .skills, .projects, .contact {
-    position: relative;
-    overflow: hidden;
-}
-
-.services::before, .skills::before, .projects::before, .contact::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: 
-        radial-gradient(circle at 20% 50%, rgba(61, 133, 244, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(0, 191, 111, 0.05) 0%, transparent 50%);
-}
-
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Enhanced animations for filter buttons */
-@keyframes float {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-8px);
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
-
-@keyframes glow {
-    0% {
-        box-shadow: 0 0 5px rgba(64, 122, 153, 0.5);
-    }
-    50% {
-        box-shadow: 0 0 20px rgba(64, 122, 153, 0.8);
-    }
-    100% {
-        box-shadow: 0 0 5px rgba(64, 122, 153, 0.5);
-    }
-}
-
-@keyframes iconRotate {
-    0% {
-        transform: rotate(0deg) scale(1);
-    }
-    25% {
-        transform: rotate(10deg) scale(1.2);
-    }
-    75% {
-        transform: rotate(-10deg) scale(1.2);
-    }
-    100% {
-        transform: rotate(0deg) scale(1);
-    }
-}
-
-@keyframes borderPulse {
-    0% {
-        border: 2px solid transparent;
-    }
-    50% {
-        border: 2px solid var(--sand-light);
-    }
-    100% {
-        border: 2px solid transparent;
-    }
-}
-
-#projects-list .section-header h2,
-#github-activity .section-header h2 {
-    background: linear-gradient(135deg, var(--sky-blue-dark), var(--mint-green-dark));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-}
-
-/* Remove hover effects */
-#projects-list .section-header h2:hover,
-#github-activity .section-header h2:hover {
-    background: linear-gradient(135deg, var(--sky-blue-dark), var(--mint-green-dark));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-#github-activity .section-header p,
-#contact .section-header p {
-    color: #ffffff;
-    opacity: 1;
-    font-size: 1.1rem;
-    margin-top: 0.5rem;
-}
-
-/* Override any existing styles that might affect these paragraphs */
-#github-activity .section-header p:hover,
-#contact .section-header p:hover {
-    color: #ffffff;
-}
-
-#github-activity .container,
-#contact .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 4rem 2rem;
-}
-
-#github-activity .section-header,
-#contact .section-header {
-    text-align: center;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 3rem;
-}
-
-#github-activity .section-header h2,
-#contact .section-header h2 {
-    text-align: center;
-    margin-bottom: 1rem;
-    width: 100%;
-    display: block;
-}
-
-#github-activity .section-header p,
-#contact .section-header p {
-    text-align: center;
-    color: #ffffff;
-    font-size: 1.1rem;
-    max-width: 600px;
-    margin: 0 auto;
-    opacity: 1;
-}
-
-/* Content centering */
-#github-activity .github-content,
-#contact .contact-info {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
+/* Hover state - maintain text color */
+.project-card:hover .project-description,
+.project-card:hover p {
+    color: #000000;
 }
