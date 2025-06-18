@@ -1384,10 +1384,11 @@ section h2::after {
     font-weight: 500;
 }
 
-/* White text for specific project descriptions */
-#python-projects .project-card .project-description,
-#tableau-projects .project-card[data-description="sales-insights"] .project-description,
-#powerbi-projects .project-card[data-description="hr-analytics"] .project-description {
+/* White text for all project descriptions with data-description attribute */
+.project-card[data-description="adventure-works"] .project-description,
+.project-card[data-description="hr-analytics"] .project-description,
+.project-card[data-description="sales-insights"] .project-description,
+#python-projects .project-card .project-description {
     color: #ffffff !important;
     background-color: rgba(0, 0, 0, 0.7);
     padding: 1rem;
@@ -1410,4 +1411,13 @@ section h2::after {
     background: rgba(255, 255, 255, 0.1);
     color: #ffffff;
     border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Project Description Text Colors */
+.project-card .project-description {
+    color: var(--text-light); /* Set default color to white */
+}
+
+.project-card h3 {
+    color: var(--text-light); /* Set heading color to white */
 }
