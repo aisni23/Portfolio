@@ -1467,3 +1467,35 @@ section h2::after {
     transform: none;
     opacity: 1;
 }
+
+/* Header styles for specific sections */
+#projects-list .section-header h2,
+#github-activity .section-header h2 {
+    background: linear-gradient(135deg, var(--sky-blue-dark), var(--mint-green-dark));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-shadow: var(--text-shadow);
+}
+
+/* Remove all hover effects */
+#projects-list .section-header h2:hover,
+#github-activity .section-header h2:hover,
+#projects-list .section-header:hover h2,
+#github-activity .section-header:hover h2 {
+    background: linear-gradient(135deg, var(--sky-blue-dark), var(--mint-green-dark));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transform: none;
+    opacity: 1;
+}
+
+/* Remove any transition effects */
+#projects-list .section-header h2,
+#github-activity .section-header h2 {
+    transition: none;
+}
