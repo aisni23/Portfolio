@@ -1,3 +1,24 @@
+/* Variables */
+:root {
+    /* Colors */
+    --sky-blue-light: #e6f3ff;
+    --sky-blue: #66b3ff;
+    --sky-blue-dark: #0066cc;
+    --mint-green: #98f5c4;
+    --mint-green-dark: #40bf80;
+    --text-dark: #2c3e50;
+    --text-light: #ffffff;
+    
+    /* Gradients */
+    --main-gradient: linear-gradient(135deg, var(--sky-blue), var(--mint-green));
+    --header-gradient: linear-gradient(135deg, var(--sky-blue-dark), var(--mint-green-dark));
+    --nav-gradient: linear-gradient(to right, var(--sky-blue-dark), var(--mint-green-dark));
+    
+    /* Shadows and Effects */
+    --shadow-soft: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
 /* Initial loading state */
 body.loading {
     opacity: 0;
@@ -54,20 +75,6 @@ p {
 }
 
 /* Critical Styles */
-:root {
-    /* New Sky Blue Theme Colors */
-    --sky-blue-light: #e6f3ff;
-    --sky-blue: #66b3ff;
-    --sky-blue-dark: #0066cc;
-    --mint-green: #98f5c4;
-    --mint-green-dark: #40bf80;
-    
-    /* Updated Gradients */
-    --main-gradient: linear-gradient(135deg, var(--sky-blue), var(--mint-green));
-    --header-gradient: linear-gradient(135deg, var(--sky-blue-dark), var(--mint-green-dark));
-    --text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-}
-
 /* Header base styles */
 .section-header h2,
 .hero-content h1.name,
@@ -83,20 +90,11 @@ p {
     margin-bottom: 1.5rem;
 }
 
-/* Specific header sizes */
-.hero-content h1.name {
-    font-size: 3.5rem;
-}
-
-.section-header h2 {
-    font-size: 2.5rem;
-}
-
+/* Header Sizes */
+.hero-content h1.name { font-size: 3.5rem; }
+.section-header h2 { font-size: 2.5rem; }
 .github-card h3,
-.contact-card h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-}
+.contact-card h3 { font-size: 1.8rem; }
 
 /* Global Styles */
 body {
@@ -130,8 +128,7 @@ body {
     height: var(--header-height);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--sand-light);
-    box-shadow: var(--shadow-medium);
+    box-shadow: var(--shadow-soft);
     z-index: 1000;
 }
 
@@ -164,10 +161,7 @@ body {
     color: var(--text-light);
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s ease, opacity 0.3s ease;
-    padding: 0.5rem 0;
     font-size: 1.1rem;
-    position: relative;
     opacity: 0.9;
 }
 
@@ -1390,26 +1384,52 @@ section h2::after {
     font-weight: 500;
 }
 
-/* Remove hover effects from project grid */
-.projects-grid .project-card:hover {
+/* Reset project box styles to remove all hover and transform effects */
+.project-card,
+.project-card[data-category="powerbi"],
+.project-card[data-category="tableau"],
+.project-card[data-category="python"] {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    /* Remove all transitions and transforms */
+    transition: none;
+    transform: none;
+}
+
+/* Remove hover effects */
+.project-card:hover,
+.project-card[data-category="powerbi"]:hover,
+.project-card[data-category="tableau"]:hover,
+.project-card[data-category="python"]:hover {
     transform: none;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: default;
 }
 
-/* Remove hover effects from project links */
-.project-card a:hover {
+/* Remove animation classes if any */
+.project-card.animate,
+.project-card.fade-in,
+.project-card.slide-up {
+    animation: none;
+    opacity: 1;
     transform: none;
-    color: inherit;
 }
 
-/* Remove hover effects from project images */
-.project-card .project-image:hover {
+/* Keep content static */
+.project-card .project-image,
+.project-card .project-content {
+    transform: none;
+    transition: none;
+}
+
+/* Remove hover effects from project content */
+.project-card:hover .project-image,
+.project-card:hover .project-content,
+.project-card:hover .project-title,
+.project-card:hover .project-description {
     transform: none;
     opacity: 1;
-}
-
-/* Remove hover effects from tech tags */
-.project-tech span:hover {
-    transform: none;
-    background: inherit;
 }
