@@ -91,6 +91,15 @@
             text-shadow: var(--text-shadow);
         }
 
+        /* Red and Gold Gradient for Section Headers */
+        .section-header h2 {
+            background: linear-gradient(90deg, #FFD700, #B22222);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: none !important;
+        }
+
         .section-header p {
             color: rgba(255,255,255,0.7);
             max-width: 600px;
@@ -99,55 +108,82 @@
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            justify-items: center;
+            align-items: stretch;
         }
 
         .project-card {
             display: flex;
             flex-direction: column;
+            align-items: center;
+            background: rgba(15, 22, 40, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+            border: 1px solid rgba(255,255,255,0.12);
+            min-height: 480px;
+            max-width: 370px;
+            width: 100%;
+            margin: 0 auto;
             overflow: hidden;
             padding: 0;
-            background: var(--card-bg);
-            border-radius: 12px;
-            box-shadow: var(--shadow-soft);
-            transition: all 0.3s ease;
+            transition: box-shadow 0.3s, transform 0.3s;
         }
 
         .project-card .project-image {
             width: 100%;
-            height: 220px;
+            height: 210px;
             object-fit: cover;
             object-position: center;
-            border-radius: 12px 12px 0 0;
-            background: #e6f3ff;
+            border-radius: 20px 20px 0 0;
+            background: #fff;
+            border-bottom: 1px solid #e6f3ff;
         }
 
         @media (max-width: 600px) {
             .project-card .project-image {
-                height: 140px;
+                height: 120px;
             }
         }
 
         .project-card .project-content {
-            padding: 1.5rem;
+            padding: 1.5rem 1.5rem 1rem 1.5rem;
             flex: 1;
             display: flex;
             flex-direction: column;
+            width: 100%;
         }
 
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        .project-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.8rem;
+            text-align: left;
         }
 
-        .project-card:hover .project-image {
-            opacity: 0.9;
+        .project-card p {
+            color: #fff;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.2rem;
+            text-align: left;
         }
 
-        .project-card .tags {
-            margin-top: auto;
-            margin-bottom: 1rem;
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .tag {
+            background: rgba(255,255,255,0.08);
+            color: #fff;
+            border-radius: 50px;
+            padding: 0.3rem 0.9rem;
+            font-size: 0.92rem;
         }
 
         .project-link {
@@ -157,21 +193,13 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            color: var(--sky-blue-dark);
+            color: #66b3ff;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: color 0.3s;
         }
 
         .project-link:hover {
-            color: var(--mint-green-dark);
-        }
-
-        .project-link svg {
-            transition: transform 0.3s ease;
-        }
-
-        .project-link:hover svg {
-            transform: translateX(5px);
+            color: #98f5c4;
         }
 
         .filter-btn {
@@ -303,6 +331,22 @@
                 padding: 1.5rem;
             }
         }
+
+        /* Power BI project cards horizontal layout for desktop */
+        @media (min-width: 900px) {
+            .powerbi-horizontal {
+                display: flex;
+                flex-direction: row;
+                gap: 2.5rem;
+                justify-content: center;
+                align-items: stretch;
+            }
+            .powerbi-horizontal .project-card {
+                min-width: 340px;
+                max-width: 370px;
+                flex: 1 1 340px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -328,8 +372,8 @@
                 <h2>Power BI Analytics</h2>
                 <p>Interactive dashboards delivering comprehensive business insights through advanced data visualization</p>
             </div>
-            <div class="projects-grid">                <div class="project-card">
-                    <img src="assets/images/projects/BA2.jpg" alt="Adventure Works Dashboard" class="project-image">
+            <div class="projects-grid powerbi-horizontal">                <div class="project-card">
+                    <img src="assets/images/projects/Adventure Workbook .png" alt="Adventure Works Dashboard" class="project-image">
                     <div class="project-content">
                         <h3>Adventure Workbook Dashboard</h3>
                         <p>A comprehensive Power BI dashboard for Adventure Works, providing detailed business metrics and KPIs for strategic decision-making.</p>
@@ -394,7 +438,7 @@
                 <p>Advanced data storytelling through powerful Tableau visualizations</p>
             </div>
             <div class="projects-grid">                <div class="project-card">
-                    <img src="assets/images/projects/Sales_Tableau_dashboard.png" alt="Sales Insights Dashboard" class="project-image">
+                    <img src="assets/images/projects/Sales_Tableau_dashboard.png" 
                     <div class="project-content">
                         <h3>Sales Dashboard</h3>
                         <p>Comprehensive sales analytics dashboard providing actionable insights for business decision-making and performance tracking.</p>
@@ -422,6 +466,7 @@
             </div>
             <div class="projects-grid">
                 <div class="project-card">
+                    <img src="assets/images/projects/Python project.jpg"
                     <h3>EDA Food Truck</h3>
                     <p>Comprehensive Exploratory Data Analysis (EDA) of food truck data, uncovering insights and patterns in the food service industry.</p>
                     <div class="tags">
