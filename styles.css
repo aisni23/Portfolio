@@ -340,6 +340,34 @@ header h1 {
     font-weight: 500;
 }
 
+/* Section Headers - No Hover Effect */
+.section-header h2.gradient-header {
+    background: linear-gradient(135deg, var(--sky-blue-light), var(--mint-green));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    padding: 0.5rem 0;
+    display: inline-block;
+    text-shadow: none;
+    transition: none;
+}
+
+/* Remove all hover effects for section headers */
+.section-header h2.gradient-header:hover,
+.section-header h2:hover,
+.gradient-text:hover,
+.github-section h2:hover,
+.section-title:hover {
+    background: linear-gradient(135deg, var(--sky-blue-light), var(--mint-green));
+    -webkit-background-clip: text;
+    background-clip: text;
+    transform: none;
+    transition: none;
+}
+
 /* Add hover animation */
 .project-card:hover .project-title,
 .section-header h2:hover,
@@ -1255,7 +1283,10 @@ section h2::after {
 }
 
 .contact-card {
-    background: rgba(255, 255, 255, 0.95);
+    background: linear-gradient(135deg, 
+        rgba(218, 165, 32, 0.95), /* Gold with opacity */
+        rgba(178, 34, 34, 0.95)   /* Red with opacity */
+    );
     padding: 1.5rem 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -1264,41 +1295,23 @@ section h2::after {
     margin: 0 auto;
 }
 
-.contact-card h3 {
-    color: #000000;
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    font-weight: 600;
+/* Adjust text colors for better contrast on new background */
+.contact-card h3.gradient-header {
+    background: linear-gradient(135deg, #FFFFFF, #FFD700);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
-.contact-details {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 1.5rem;
+.contact-card .contact-details a,
+.contact-card .contact-details p,
+.contact-card i {
+    color: #FFFFFF;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-.contact-details p {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    margin: 0;
-}
-
-.contact-details i {
-    margin-right: 0.5rem;
-    color: var(--ocean-medium);
-}
-
-.contact-details a {
-    color: var(--ocean-medium);
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.contact-details a:hover {
-    color: var(--ocean-deep);
+.contact-card i {
+    color: #FFD700; /* Gold color for icons */
 }
 
 /* Section box backgrounds */
@@ -1581,4 +1594,26 @@ section h2::after {
 
 .btn.btn-primary:hover {
     transform: translateY(-2px);
+}
+
+/* Override any other hover effects */
+.gradient-header,
+h2.gradient-header,
+.section-header .gradient-header {
+    background: linear-gradient(135deg, var(--sky-blue-light), var(--mint-green)) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
+    transition: none !important;
+}
+
+/* Ensure no transform or color change on hover */
+.gradient-header:hover,
+h2.gradient-header:hover,
+.section-header .gradient-header:hover {
+    transform: none !important;
+    background: linear-gradient(135deg, var(--sky-blue-light), var(--mint-green)) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    color: transparent !important;
 }
