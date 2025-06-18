@@ -116,9 +116,17 @@
 
         .project-card .project-image {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
+            object-position: center;
             border-radius: 12px 12px 0 0;
+            background: #e6f3ff;
+        }
+
+        @media (max-width: 600px) {
+            .project-card .project-image {
+                height: 140px;
+            }
         }
 
         .project-card .project-content {
@@ -320,7 +328,7 @@
                 <h2>Power BI Analytics</h2>
                 <p>Interactive dashboards delivering comprehensive business insights through advanced data visualization</p>
             </div>
-            <div class="projects-grid">                <div class="project-card"></div>
+            <div class="projects-grid">                <div class="project-card">
                     <img src="assets/images/projects/BA2.jpg" alt="Adventure Works Dashboard" class="project-image">
                     <div class="project-content">
                         <h3>Adventure Workbook Dashboard</h3>
