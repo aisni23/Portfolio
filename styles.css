@@ -1661,20 +1661,82 @@ section h2::after {
 
 #projects-list .section-header h2,
 #github-activity .section-header h2 {
-    /* Reset all gradient and color effects */
-    background: none;
-    -webkit-background-clip: unset;
-    background-clip: unset;
-    color: inherit;
-    text-shadow: none;
+    background: linear-gradient(135deg, var(--sky-blue-dark), var(--mint-green-dark));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
     font-weight: 700;
     margin-bottom: 1.5rem;
 }
 
-/* Remove any hover effects */
+/* Remove hover effects */
 #projects-list .section-header h2:hover,
 #github-activity .section-header h2:hover {
-    background: none;
-    color: inherit;
-    text-shadow: none;
+    background: linear-gradient(135deg, var(--sky-blue-dark), var(--mint-green-dark));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+#github-activity .section-header p,
+#contact .section-header p {
+    color: #ffffff;
+    opacity: 1;
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+}
+
+/* Override any existing styles that might affect these paragraphs */
+#github-activity .section-header p:hover,
+#contact .section-header p:hover {
+    color: #ffffff;
+}
+
+#github-activity .container,
+#contact .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+}
+
+#github-activity .section-header,
+#contact .section-header {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+#github-activity .section-header h2,
+#contact .section-header h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    width: 100%;
+    display: block;
+}
+
+#github-activity .section-header p,
+#contact .section-header p {
+    text-align: center;
+    color: #ffffff;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 1;
+}
+
+/* Content centering */
+#github-activity .github-content,
+#contact .contact-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
 }
